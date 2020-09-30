@@ -1,0 +1,9 @@
+{
+  "buildDescriptor" : "pubspec.yaml",
+  "readOnlyFiles" : ["pubspec.yaml"],
+  "verification": {
+    "pathPatterns": ["**test/verify_pack**"]
+  }
+}
+
+
