@@ -3,7 +3,7 @@ import 'package:calculator_flutter/operation_manager.dart';
 import 'package:test/test.dart';
 
 void main() {
-  Calculator calculator;
+  late Calculator calculator;
 
   setUp(() {
     calculator = Calculator();
@@ -51,11 +51,14 @@ void main() {
     expect(result, BigInt.from(4));
   });
 
-  test('shouldThrowWhenDividedByZero', () {
+  test(
+    'shouldThrowWhenDividedByZero',
+    () {
       calculator.evaluate(BigInt.from(10));
       calculator.setOperation(Operation.DIVIDE);
 
-      expect(() => calculator.evaluate(BigInt.zero), throwsA(isA<IntegerDivisionByZeroException>()));
+      expect(() => calculator.evaluate(BigInt.zero),
+          throwsA(isA<IntegerDivisionByZeroException>()));
     },
   );
 }

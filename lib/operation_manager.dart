@@ -1,18 +1,8 @@
-enum Operation {
-  NONE,
-  ADD,
-  SUBTRACT,
-  MULTIPLY,
-  DIVIDE,
-  REMOVE,
-  EQUAL,
-  CLEAR
-}
+enum Operation { NONE, ADD, SUBTRACT, MULTIPLY, DIVIDE, REMOVE, EQUAL, CLEAR }
 
 extension OperationManager on Operation {
-
   BigInt perform(BigInt acc, BigInt arg) {
-    switch(this) {
+    switch (this) {
       case Operation.NONE:
         return arg;
       case Operation.ADD:
@@ -23,12 +13,8 @@ extension OperationManager on Operation {
         return acc * arg;
       case Operation.DIVIDE:
         return acc ~/ arg;
-        default:
-        return null;
+      default:
+        return acc;
     }
-
-
   }
-
-
 }

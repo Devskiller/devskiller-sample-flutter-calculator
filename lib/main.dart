@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CalculatorPage extends StatefulWidget {
-  CalculatorPage({Key key, this.title}) : super(key: key);
+  CalculatorPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -31,7 +31,7 @@ class CalculatorPage extends StatefulWidget {
 class _CalculatorPageState extends State<CalculatorPage> {
   Display _display = Display();
   Calculator _calculator = Calculator();
-  String error;
+  String? error;
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +49,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 4),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 32, horizontal: 4),
                     child: Text(
                       error ?? _display.getValue().toString(),
                       textAlign: TextAlign.end,
-                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+                      style:
+                          TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -201,10 +203,10 @@ class OperationButton extends StatelessWidget {
   final Operation operation;
 
   const OperationButton({
-    this.onTap,
+    required this.onTap,
     this.operation = Operation.NONE,
     this.backgroundColor = Colors.blue,
-    ValueKey<String> key,
+    required ValueKey<String> key,
   }) : super(key: key);
 
   @override
